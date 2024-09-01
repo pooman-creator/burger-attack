@@ -1,5 +1,6 @@
 {
     "name": "Burger Attack (full version)",
+    "version": "0.0.1",
     "description": "",
     "dependencies": {
         "device": "*",
