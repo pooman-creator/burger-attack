@@ -1,5 +1,5 @@
 {
-    "name": "Burger Attack",
+    "name": "Burger Attack (full version)",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -15,7 +15,9 @@
         "tilemap.g.jres",
         "tilemap.g.ts",
         "fgcfkgxkj.ts",
-        "custom.ts"
+        "custom.ts",
+        "images.g.jres",
+        "images.g.ts"
     ],
     "testFiles": [
         "test.ts"

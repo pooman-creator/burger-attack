@@ -6,12 +6,17 @@ statusbars.onZero(StatusBarKind.Health, function (status) {
     game.gameOver(false)
     game.reset()
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    statusbar.value += 5
+    banana.setPosition(randint(0, scene.screenWidth()), randint(0, scene.screenHeight()))
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     statusbar.value += -1
 })
 let myEnemy: Sprite = null
 let statusbar: StatusBarSprite = null
-game.splash("Use up, down, left and right to dodge the flying burgers. ")
+let banana: Sprite = null
+game.splash("Use up, down, left and right to dodge the flying burgers. ", "Eat the bananas instead.")
 scene.setBackgroundImage(img`
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
@@ -153,6 +158,8 @@ let mySprite = sprites.create(img`
     . . . . f f f f f f f f f . . . 
     `, SpriteKind.Player)
 mySprite.setPosition(22, 86)
+banana = sprites.create(assets.image`banana`, SpriteKind.Food)
+banana.setStayInScreen(true)
 animation.runImageAnimation(
 mySprite,
 [img`
